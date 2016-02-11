@@ -163,6 +163,18 @@ template: inverse
 # What I do
 
 ---
+
+## Projects
+
+1. <h3> OPFs </h3>
+1. <h3> Machine learning </h3>
+  - Random Forest
+  - SVM
+  - Feature selection
+1. <h3> family data </h3>
+1. <h3> hmp data </h3>
+
+---
 layout: false
 .left-column[
   ## Quality trim reads
@@ -217,17 +229,6 @@ layout: false
 - All v KEGG, COG, eggNOG, etc.
 ]
 
----
-
-## Projects
-
-1. <h3> OPFs </h3>
-1. <h3> Machine learning </h3>
-  - Random Forest
-  - SVM
-  - Feature selection
-1. <h3> family data </h3>
-1. <h3> hmp data </h3>
 
 ---
 template: inverse
@@ -238,11 +239,13 @@ class: center, middle
 ---
 .left-column[
   ## OPFs
-  ## what?
+  ## What?
 ]
 .right-column[
 
 - Operational protein families are clusters of similar proteins
+
+  - 30% sequence homology
 
 - Creating OPFs is a database free method of grouping sequences 
 
@@ -252,19 +255,46 @@ class: center, middle
 ---
 .left-column[
   ## OPFs
-  ## what?
+  ## What?
   ## Why?
 ]
 .right-column[
 
-Databases are not great
+Databases are incomplete
 
-* Genes present are limited to what we "know" or at least have seen before
+- Genes present are limited to what we "know" or at least have seen before
 
-* Annotations are limited in the same way
+- Most observed genes are still of unknown function
 
-* Leaves a large (often over half) of the data in a black box
+- Leaves a large portion of the data in a black box
+
+  - Between 50%-80% of genes from gut datasets are unknown
 ]
+
+---
+template: inverse
+class: center, middle
+
+# Analyzing the data
+
+---
+.left-column[
+  ## Annotating OPFs
+]
+.right-column[
+
+- Consensus annotation using existing databases 
+
+  - Names
+  - Functional domain
+
+- Specilized databases are espically useful in this application
+
+]
+
+---
+
+## Metadata
 
 ---
 template: inverse
@@ -273,6 +303,8 @@ class: center, middle
 # Machine learning
 
 ---
+name: Machine learning
+
 .left-column[
   ## What is it?
 ]
