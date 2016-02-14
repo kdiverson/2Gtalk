@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <title>Title</title>
+    <title>Microbial Community Ecology</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -137,7 +137,7 @@ class: center, middle
 
 <i class="fa fa-github-alt"> kdiverson </i> 
 
-Slides available on github: kathryniverson.com/2Gtalk#1
+<i class="fa fa-file-code-o"></i> slides: kathryniverson.com/2Gtalk#1
 
 ---
 
@@ -152,27 +152,57 @@ Slides available on github: kathryniverson.com/2Gtalk#1
 
 # Who I am
 
-1. I do stuff
-1. I do a lot of stuff
-1. sometimes it's turtles
-1. sometimes it's computers
+- BA in Biology from Earlham College
+
+- MS in Bioinformatics from University of Michigan 
+
+- Gut microbiome metagenomics projects
+
+  - Colon cancer 
+
+  - Clostridium difficile
+
+  - IBD and Chron's microbiome
+
+  - Healthy populations
+
+        - Family project
+        - Human Microbiome Project (HMP)
 
 ---
-template: inverse
-
+layout: false
 # What I do
+## Projects
+.left-column[
+  ## Family data
+]
+.right-column[
+- 
+
+]
 
 ---
+layout: false
+.left-column[
+  ## Family data
+  ## Colon cancer
+]
+.right-column[
+- 
 
-## Projects
+]
 
-1. <h3> OPFs </h3>
-1. <h3> Machine learning </h3>
-  - Random Forest
-  - SVM
-  - Feature selection
-1. <h3> family data </h3>
-1. <h3> hmp data </h3>
+---
+layout: false
+.left-column[
+  ## Family data
+  ## Colon cancer
+  ## HMP
+]
+.right-column[
+- 
+
+]
 
 ---
 layout: false
@@ -180,6 +210,8 @@ layout: false
   ## Quality trim reads
 ]
 .right-column[
+- SeqPrep to remove primers
+
 - Sickle
 ]
 
@@ -187,10 +219,51 @@ layout: false
 .left-column[
   ## Quality trim reads
   ## Assemble
+  ### why assemble?
 ]
 .right-column[
-- Megahit
+
+A good analysis starts with a good assembly
+
+- Reads not great
+
+- Assembly reduces complexity of the dataset
+
+
+Historically assemblers haven't been very good for metagenomes
+
+- Assemblers assume even coverage
+
+  - Metagenomes don't have even coverage
+
+Work arounds
+
+- Iterative assembly
+
+  - Multiple velvet runs
+
 ]
+
+---
+.left-column[
+  ## Quality trim reads
+  ## Assemble
+  ### why assemble?
+  ### the right assembly
+]
+.right-column[
+
+Solutions
+
+- Megahit
+
+    - Succinct de Bruijn graph assembler
+
+    - Iterative k-mer assembly
+
+    - CUDA
+]
+
 
 ---
 .left-column[
@@ -199,6 +272,16 @@ layout: false
   ## Call ORFs
 ]
 .right-column[
+Genes are the base of metagenomic analysis
+
+- Provide insight into the genetic potential of the community
+
+- 16S only part of the story
+
+  - Tells you who's there, not what they're doing
+
+  - Necessary for meaningful insight into community differences
+
 - Prodigal
 ]
 
@@ -231,7 +314,7 @@ layout: false
 
 
 ---
-template: inverse
+template: .inverse
 class: center, middle
 
 # OPFs
@@ -272,6 +355,16 @@ Databases are incomplete
 ]
 
 ---
+layout: false
+.left-column[
+  ## HMP data
+]
+.right-column[
+- 
+
+]
+
+---
 template: inverse
 class: center, middle
 
@@ -293,6 +386,7 @@ class: center, middle
 ]
 
 ---
+class: center, middle
 
 ## Metadata
 
@@ -339,9 +433,78 @@ Algorithm based on decision trees
 ]
 
 ---
+layout: false
+.left-column[
+  ## Feature selection
+]
+.right-column[
+- Selecting a subset of data that has the relevant features for a learning algorithm
+
+- Finding the characteristics of a dataset
+
+- Also called gene selection in microarray analysis
+
+- What OTUs are different between the groups?
+
+
+]
+
+---
+layout: false
+.left-column[
+  ## Colon cancer
+]
+.right-column[
+- 
+
+]
+
+---
+class: center, middle
+
+# Putting it all together
+
+---
+layout: false
+.left-column[
+  ## 16S
+]
+.right-column[
+
+- Tells us who's there
+
+]
+
+---
+layout: false
+.left-column[
+  ## 16S
+  ## Metagenomics
+]
+.right-column[
+
+- Tells us what they can do 
+
+]
+
+---
+layout: false
+.left-column[
+  ## 16S
+  ## Metagenomics
+  ## Transcriptomics
+]
+.right-column[
+
+- Tells us what they're doing now
+
+]
 
 
 ---
+class: center, middle
+
+# Questions?
 
 
     </textarea>
