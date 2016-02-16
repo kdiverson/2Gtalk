@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   
+    <link rel="stylesheet" href="/Users/kiverson/Downloads/font-awesome-4.5.0/css/font-awesome.min.css">
+  --> 
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
     <title>Microbial Community Ecology</title>
     <meta charset="utf-8">
     <style>
@@ -113,6 +118,17 @@
         float: right;
         padding-top: 1em;
       }
+
+      .first-column {
+        width: 50%;
+        float: left;
+        padding-top: 1em;
+      }
+      .second-column {
+        width: 50%;
+        float: right;
+        padding-top: 1em;
+      }
     </style>
   </head>
   <body>
@@ -121,7 +137,7 @@
 
 class: center, middle
 
-# Microbial Community Ecology
+# Microbial Community Ecology with Metagenomics
 ## Kathryn Iverson
 ## February 16th, 2016
 
@@ -144,9 +160,12 @@ class: center, middle
 # Agenda
 
 1. About me
-2. My process
-3. Projects
-4. Future directions
+
+1. Projects
+
+1. Analyzing metagenomes
+
+1. Future directions
 
 ---
 
@@ -171,13 +190,18 @@ class: center, middle
 
 ---
 layout: false
-# What I do
-## Projects
+# Projects
 .left-column[
   ## Family data
 ]
 .right-column[
-- 
+- Follows a family of 8 (2 parents 6 children) over the course of a month
+
+- 16S and metagenomic data
+
+- Children represent a chronosequence
+
+- Core microbiome via 16S
 
 ]
 
@@ -188,7 +212,12 @@ layout: false
   ## Colon cancer
 ]
 .right-column[
-- 
+- Murine model of inflammation-associated colorectal cancer
+
+  - Azoxymethane (AOM)/2% dextran sodium sulfate (DSS) model
+  - AOM injection followed by 3 rounds of DSS
+
+- Samples collected at day 0 and after each round of DSS
 
 ]
 
@@ -200,9 +229,31 @@ layout: false
   ## HMP
 ]
 .right-column[
-- 
+  
+  - Anterior nares
+      - 87 metagenomes
+
+- Buccal mucosa
+      - 107 metagenomes
+
+- Posterior fornix
+      - 51 metagenomes
+
+- Supragingival plaque
+      - 118 metagenomes
+
+- Stool
+      - 138 metagenomes
+
+- Tongue dorsum
+      - 128 metagenomes
 
 ]
+
+---
+class: center, middle
+
+# Processing the data
 
 ---
 layout: false
@@ -225,7 +276,7 @@ layout: false
 
 A good analysis starts with a good assembly
 
-- Reads not great
+- Reads are too short to contain full length genes
 
 - Assembly reduces complexity of the dataset
 
@@ -280,9 +331,6 @@ Genes are the base of metagenomic analysis
 
   - Tells you who's there, not what they're doing
 
-  - Necessary for meaningful insight into community differences
-
-- Prodigal
 ]
 
 ---
@@ -295,7 +343,14 @@ Genes are the base of metagenomic analysis
 .right-column[
 - Bowtie2
 
-- Normalize
+- Mapping reads provides an abundance count
+
+- Normalize to gene length
+
+```
+ceiling(num_reads_mapped * read_length / len(gene))
+```
+
 ]
 
 ---
@@ -307,9 +362,12 @@ Genes are the base of metagenomic analysis
   ## BLAST
 ]
 .right-column[
-- All v all
+- All v all to get blast score ratio for clustering
 
-- All v KEGG, COG, eggNOG, etc.
+- Similar to clustering 16S within a phylotype can cluster with a KEGG KO category
+
+- Can also blast against specialized databases such at metaCyc, cazy, pfam
+
 ]
 
 
@@ -332,7 +390,7 @@ class: center, middle
 
 - Creating OPFs is a database free method of grouping sequences 
 
-- Analogous to OTUs
+- Analogous to 16S OTUs
 ]
 
 ---
@@ -352,15 +410,18 @@ Databases are incomplete
 - Leaves a large portion of the data in a black box
 
   - Between 50%-80% of genes from gut datasets are unknown
+
+- Provides a fine grain look at the data and can detect more subtle variation within and between communities
 ]
 
 ---
 layout: false
 .left-column[
-  ## HMP data
+  ## HMP data - buccal mucosa
 ]
 .right-column[
-- 
+
+![mucosa](mucosa.jpeg)
 
 ]
 
@@ -381,14 +442,16 @@ class: center, middle
   - Names
   - Functional domain
 
-- Specilized databases are espically useful in this application
+- Specialized databases are especially useful in this application
+
+- OPFs are a unit analogous to OTUs
+
+  - Diversity metrics
+
+  - Machine learning applications
 
 ]
 
----
-class: center, middle
-
-## Metadata
 
 ---
 template: inverse
@@ -451,13 +514,13 @@ layout: false
 
 ---
 layout: false
-.left-column[
-  ## Colon cancer
-]
-.right-column[
-- 
+class: center, middle
 
-]
+## Colon cancer tumorigenesis
+
+
+![AOM/DSS plot](aomdss.jpeg)
+
 
 ---
 class: center, middle
@@ -467,6 +530,18 @@ class: center, middle
 ---
 layout: false
 .left-column[
+  ## Metadata
+]
+.right-column[
+
+- Describes the environment in human friendly terms
+
+]
+
+---
+layout: false
+.left-column[
+  ## Metadata
   ## 16S
 ]
 .right-column[
@@ -478,6 +553,7 @@ layout: false
 ---
 layout: false
 .left-column[
+  ## Metadata
   ## 16S
   ## Metagenomics
 ]
@@ -490,6 +566,7 @@ layout: false
 ---
 layout: false
 .left-column[
+  ## Metadata
   ## 16S
   ## Metagenomics
   ## Transcriptomics
@@ -498,8 +575,24 @@ layout: false
 
 - Tells us what they're doing now
 
+- Can model pathways
+
 ]
 
+---
+layout: false
+.left-column[
+  ## Metadata
+  ## 16S
+  ## Metagenomics
+  ## Transcriptomics
+  ## Metabolomics
+]
+.right-column[
+
+- Tells us what compounds are available and/or being produced
+
+]
 
 ---
 class: center, middle
@@ -508,7 +601,13 @@ class: center, middle
 
 
     </textarea>
+<!--
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+
+    <script src="/Users/kiverson/Downloads/remark-gh-pages/downloads/remark-0.13.min.js">
+-->
+
+   <script src="remark-0.13.min.js">
     </script>
     <script>
       var slideshow = remark.create();
